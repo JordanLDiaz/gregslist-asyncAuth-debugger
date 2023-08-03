@@ -29,7 +29,7 @@ export class CarsController {
     this.getCars()
     _drawButton()
 
-    AppState.on('cart', _drawCars)
+    AppState.on('cars', _drawCars)
     AppState.on('account', _drawCars)
     AppState.on('account', _drawButton)
   }
@@ -42,7 +42,7 @@ export class CarsController {
     }
   }
 
-  createCar() {
+  async createCar() {
     try {
       window.event.preventDefault()
       const form = window.event.target
@@ -58,12 +58,11 @@ export class CarsController {
 
   async deleteCar(carId) {
     try {
-      const yes = Pop.confirm('Are you sure you want to delete remove this listing?')
+      const yes = await Pop.confirm('Are you sure you want to delete remove this listing?')
 
       if (!yes) {
         return
       }
-
       await carsService.deleteCar(carId)
     } catch (error) {
       Pop.error(error)

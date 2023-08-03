@@ -6,7 +6,7 @@ export class Car {
     this.make = data.make
     this.model = data.model
     this.year = data.year
-    this.price = 500
+    this.price = data.price
     this.color = data.color
     this.imgUrl = data.imgUrl
     this.description = data.description
@@ -23,7 +23,7 @@ export class Car {
         <div class="card-body">
           <p class="fs-4 mb-2 d-flex justify-content-between">
             <span>
-              Honda Civic
+              ${this.make} | ${this.model}
             </span>
             <span>
               $${this.price}
@@ -82,7 +82,7 @@ export class Car {
           </div>
           <div class="mb-3 col-6">
             <label for="price" class="form-label">Car Price</label>
-            <input required min="2000" max="1000000" type="number" class="form-control" id="price" name="mileage"
+            <input required min="2000" max="1000000" type="number" class="form-control" id="price" name="price"
               placeholder="Car Price">
           </div>
           <div class="mb-3 col-12">
